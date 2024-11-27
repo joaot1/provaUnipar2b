@@ -14,7 +14,6 @@ public class sistemaBancario extends JFrame {
     public double saldo;
 
     public sistemaBancario(){
-
         saldo = 500.00;
         lblSaldo.setText(String.valueOf(saldo));
 
@@ -40,10 +39,10 @@ public class sistemaBancario extends JFrame {
                         }
 
                     } else if(valorSaque < 0) {
-                        txtMensagem.setText("Valor negativo nao pode bonitao");
+                        txtMensagem.setText("Valor negativo não é liberado");
                         txtValorSaque.setText("");
                     }else{
-                        txtMensagem.setText("0 não rola");
+                        txtMensagem.setText("não é possivel colocar o valor 0");
                         txtValorSaque.setText("");
                     }
                 }
@@ -55,7 +54,7 @@ public class sistemaBancario extends JFrame {
             public void actionPerformed(ActionEvent e) {
 
                 if (String.valueOf(txtValorDeposito.getText()).isEmpty()) {
-                    txtMensagem.setText("favor colocar valor valido");
+                    txtMensagem.setText("coloque um valor valido");
                 }else {
 
                     double valorDeposito = Double.parseDouble(txtValorDeposito.getText());
@@ -65,7 +64,7 @@ public class sistemaBancario extends JFrame {
                     } else {
 
                         if (valorDeposito > 1000) {
-                            txtMensagem.setText("o valor desejado excede o limite possível");
+                            txtMensagem.setText("o valor desejado não será possivel pois não há limite possivel ");
                         } else if (valorDeposito <= 1000) {
                             saldo += valorDeposito;
                             lblSaldo.setText(String.valueOf(saldo));
@@ -89,7 +88,7 @@ public class sistemaBancario extends JFrame {
     }
 
     public static void main(String[] args) {
-        JFrame frame = new JFrame("Banco");
+        JFrame frame = new JFrame("Sistema Bancario Tombini");
         frame.setContentPane(new sistemaBancario().mainPanel);
         frame.setSize(500,500);
         frame.setVisible(true);
